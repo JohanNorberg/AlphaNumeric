@@ -1,7 +1,7 @@
 # AlphaNumeric
 This project contains two ways of encoding data or string to only use alpha-numeric characters.
 
-All encoded strings should match regex `@"^[a-zA-Z0-9\s,]*$"`
+All encoded strings should be `a-z A-Z 0-9`
 
 # Encode Data
 Encode raw data using the data-encoder.
