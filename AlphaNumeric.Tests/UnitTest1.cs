@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AlphaNumeric;
 using System.Security.Cryptography;
 using System.Text;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace AlphaNumeric.Tests
@@ -10,6 +11,33 @@ namespace AlphaNumeric.Tests
     [TestClass]
     public class UnitTest1
     {
+        [TestMethod]
+        public void EncodeData()
+        {
+            byte[] rawBytes = new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // Raw Data
+            string alphaNumericEncodedString = AlphaNumeric.Data.EncodeBytes(rawBytes); //Output is AAECAwQFBgcICQ0404
+            byte[] originalBytes = AlphaNumeric.Data.DecodeBytes(alphaNumericEncodedString); // Gets the original bytes back
+            Assert.IsTrue(rawBytes.SequenceEqual(originalBytes));
+        }
+
+        [TestMethod]
+        public void EncodeStringData()
+        {
+            string rawString = "穥랑瞳Ⴆ䜷䉡";
+            string alphaNumericEncodedString = AlphaNumeric.Data.EncodeString(rawString); // Output is ZXqRt7N3phA3R2FC
+            string originalString = AlphaNumeric.Data.DecodeString(alphaNumericEncodedString);
+            Assert.AreEqual(rawString, originalString);
+        }
+
+        [TestMethod]
+        public void EncodeEnglish()
+        {
+            string email = "john.fakename@fakeemail.com";
+            string alphaNumericEncodedString = AlphaNumeric.English.Encode(email); // john0Ufakename1fbfakeemail0Ucom
+            string original = AlphaNumeric.English.Decode(alphaNumericEncodedString); // john.fakename@fakeemail.com
+            Assert.AreEqual(email, original);
+        }
+
         static Regex alphaNumeric = new Regex(@"^[a-zA-Z0-9\s,]*$");
 
         [TestMethod]
