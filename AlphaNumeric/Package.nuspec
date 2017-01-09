@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Jepono.Utility.AlphaNumeric</id>
+    <version>1.0.5</version>
+    <authors>Johan Norberg</authors>
+    <owners>Jepono</owners>
+    <licenseUrl>https://github.com/JohanNorberg/AlphaNumeric</licenseUrl>
+    <projectUrl>https://github.com/JohanNorberg/AlphaNumeric</projectUrl>
+    <iconUrl>https://www.dropbox.com/s/ql5gd93y5j7jks4/avatarmiley.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Two ways of encoding data or string to only use alpha-numeric characters.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Encoding</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\AlphaNumeric.dll" target="lib\Jepono\Utility\AlphaNumeric.dll" />
+  </files>
+</package>
